@@ -1,9 +1,9 @@
 package org.growit.kz.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.growit.kz.model.*;
-
+import org.growit.kz.model.ArticleEntity;
+import org.growit.kz.model.ImageEntity;
 import org.growit.kz.service.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Base64;
 import java.util.Locale;
 
 /**
@@ -69,10 +70,19 @@ public class MainController {
 
                 int i = 0;
 
+
+
+
+
+
                 for (MultipartFile fileOne : files) {
 
 
-                    byte[] bytes = fileOne.getBytes();
+
+byte[] bytes = fileOne.getBytes();
+
+
+                    String encFile = Base64.getEncoder().encodeToString(fileOne.getBytes());
 
                     i++;
                     String rootPath = System.getProperty("catalina.home");
@@ -91,7 +101,7 @@ public class MainController {
 
                     ImageEntity imageEntity = new ImageEntity();
 
-                    imageEntity.setImagesrc(bytes);
+                    imageEntity.setImagesrc(encFile);
 
 
                     articleEntity.addImage(imageEntity);

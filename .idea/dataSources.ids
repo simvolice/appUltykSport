@@ -18,7 +18,7 @@
     </table>
     <table name="image" schema="" catalog="ultyksport" type="TABLE">
       <column name="idimage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="imagesrc" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="imagesrc" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
       <column name="articleid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="idimage"/>
       <foreign-key name="fk_articleid" columns="articleid" ref-table="article" ref-schema="" ref-catalog="ultyksport" ref-columns="idArticle" update-rule="3" delete-rule="3" deferrability="2"/>

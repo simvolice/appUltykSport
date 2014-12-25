@@ -15,9 +15,9 @@ import java.io.Serializable;
 public class ImageEntity implements Serializable{
     private int idimage;
 
-    private byte[] imagesrc;
+    private String imagesrc;
 
-    //private ArticleEntity articleByArticleid;
+
 
 
 
@@ -53,14 +53,14 @@ public class ImageEntity implements Serializable{
 
     @Column(name = "imagesrc", nullable = true, insertable = true, updatable = true)
     @JsonSerialize
-    public byte[] getImagesrc() {
+    public String getImagesrc() {
         return imagesrc;
     }
 
 
 
     @Column(name = "imagesrc", nullable = true, insertable = true, updatable = true)
-    public void setImagesrc(byte[] imagesrc) {
+    public void setImagesrc(String imagesrc) {
         this.imagesrc = imagesrc;
     }
 
