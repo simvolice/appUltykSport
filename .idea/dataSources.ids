@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - kazgidro@localhost" uuid="d06d875d-e703-42a3-af67-e6b5cf26adc4">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="ultyksport"/>
+    <table name="article" schema="" catalog="ultyksport" type="TABLE">
+      <column name="idArticle" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="textENG" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="textRUS" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="textKZ" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idArticle"/>
+      <exported-key name="fk_articleid" table="image" schema="" catalog="ultyksport" columns="articleid"/>
+      <index name="idArticle_UNIQUE" unique="true" columns="idArticle"/>
+    </table>
+    <table name="image" schema="" catalog="ultyksport" type="TABLE">
+      <column name="idimage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="imagesrc" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="articleid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idimage"/>
+      <foreign-key name="fk_articleid" columns="articleid" ref-table="article" ref-schema="" ref-catalog="ultyksport" ref-columns="idArticle" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="idimage_UNIQUE" unique="true" columns="idimage"/>
+      <index name="fk_articleid_idx" unique="false" columns="articleid"/>
+    </table>
+    <table name="users" schema="" catalog="ultyksport" type="TABLE">
+      <column name="userid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userpassword" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userrole" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userfirstname" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userlastname" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="useremail" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="userid"/>
+      <index name="userid_index" unique="false" columns="userid"/>
+    </table>
+  </data-source>
+</component>
